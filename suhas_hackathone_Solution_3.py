@@ -5,7 +5,7 @@ num_people = int(raw_input("Enter the number of people comming for wedding:"))
 #run loop for takin locations of number of people entered
 locations = []
 
-
+distance_coordinates = []
 for i in xrange(num_people):
 
     #take people locations
@@ -31,11 +31,19 @@ for i in xrange(num_people):
 
             # get distance between all the pairs
             distance = math.hypot(point1[0] - point2[0], point1[1] - point2[0])
-            print distance, point1,point2
-
+            # print distance, point1,point2
+            my_dist = distance,point1,point2
+            if my_dist not in distance_coordinates:
+                distance_coordinates.append(my_dist)
             # finding distance between points
             if math.hypot(point1[0] - point2[0], point1[1] - point2[0]) < min_distance:
                 min_pair = [point1, point2]
 
                 distance = math.hypot(point1[0] - point2[0], point1[1] - point2[0])
                 # print min_pair,"ppppppppppppppppp"
+
+    # print distance_coordinates
+
+for i in distance_coordinates:
+    print "2222222222222"
+    print i[0]
